@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <post-form @create="onCreatePostClick" />
-    <posts-list :posts="posts" />
+    <posts-list :posts="posts" :deletePost="onDeletePostClick" />
   </div>
 </template>
 
@@ -39,6 +39,9 @@ export default {
   methods: {
     onCreatePostClick(post) {
       this.posts.push(post);
+    },
+    onDeletePostClick(id) {
+      this.posts = this.posts.filter((post) => post.id !== id);
     },
   },
 };

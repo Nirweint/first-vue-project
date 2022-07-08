@@ -8,7 +8,9 @@
       type="text"
       placeholder="description"
     />
-    <button class="btn" @click="createPost">Create post</button>
+    <common-button class="form__btn" @click="createPost"
+      >Create post</common-button
+    >
   </form>
 </template>
 
@@ -37,16 +39,6 @@ export default {
 </script>
 
 <style scoped>
-.btn {
-  margin-top: 15px;
-  align-self: flex-end;
-
-  padding: 10px 15px;
-  background: none;
-  color: teal;
-  border: 1px solid teal;
-}
-
 .input {
   width: 100%;
   border: 1px solid teal;
@@ -57,5 +49,10 @@ export default {
 form {
   display: flex;
   flex-direction: column;
+}
+
+.form__btn {
+  margin-top: 15px;
+  align-self: flex-end;
 }
 </style>
