@@ -5,7 +5,9 @@
       <div><strong>Description:</strong>{{ post.description }}</div>
     </div>
     <div class="post__buttons">
-      <common-button @click="deletePost">Delete</common-button>
+      <common-button @click="$emit('deletePost', post.id)"
+        >Delete</common-button
+      >
     </div>
   </div>
 </template>
@@ -17,11 +19,6 @@ export default {
     post: {
       type: Object,
       required: true,
-    },
-  },
-  methods: {
-    deletePost() {
-      this.$emit("deletePost", this.post.id);
     },
   },
 };

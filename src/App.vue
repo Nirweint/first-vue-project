@@ -1,7 +1,13 @@
 <template>
   <div class="app">
-    <post-form @create="onCreatePostClick" />
-    <posts-list :posts="posts" :deletePost="onDeletePostClick" />
+    <h1>Page with the posts</h1>
+    <common-button @click="handleCreateNewPostClick"
+      >Create new post</common-button
+    >
+    <common-modal v-model:isShowModal="isModalOpen">
+      <post-form @create="onCreatePostClick" />
+    </common-modal>
+    <posts-list :posts="posts" @deletePost="deletePost" />
   </div>
 </template>
 
@@ -34,14 +40,19 @@ export default {
           description: "Javascript description 3",
         },
       ],
+      isModalOpen: false,
     };
   },
   methods: {
     onCreatePostClick(post) {
       this.posts.push(post);
+      this.isModalOpen = false;
     },
-    onDeletePostClick(id) {
-      this.posts = this.posts.filter((post) => post.id !== id);
+    deletePost(id) {
+      this.posts = this.posts.filter((p) => p.id !== id);
+    },
+    handleCreateNewPostClick() {
+      this.isModalOpen = true;
     },
   },
 };

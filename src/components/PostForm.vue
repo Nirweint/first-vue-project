@@ -1,10 +1,9 @@
 <template>
   <form @submit.prevent>
     <h4>Create post</h4>
-    <input v-model="post.title" class="input" type="text" placeholder="title" />
-    <input
+    <common-input v-model="post.title" type="text" placeholder="title" />
+    <common-input
       v-model="post.description"
-      class="input"
       type="text"
       placeholder="description"
     />
@@ -39,13 +38,6 @@ export default {
 </script>
 
 <style scoped>
-.input {
-  width: 100%;
-  border: 1px solid teal;
-  padding: 10px 15px;
-  margin-top: 15px;
-}
-
 form {
   display: flex;
   flex-direction: column;
