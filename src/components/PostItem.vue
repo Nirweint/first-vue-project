@@ -6,7 +6,7 @@
     </div>
     <div class="post__buttons">
       <common-button @click="$emit('deletePost', post.id)"
-        >Delete</common-button
+        >Delete me second branch</common-button
       >
     </div>
   </div>
